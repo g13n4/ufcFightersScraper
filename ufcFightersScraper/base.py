@@ -45,16 +45,12 @@ class base():
 
     def dl_fights(self):
         "helper to reduce redundancy in fights dumps/loads"
-        if not self.cardsLinks:
-            if os.path.isfile(self.fn_cards):
-                self.load_archieve(self.fn_cards)
-                self.dl_fights()
-            else:
-                self._cards_getter()
-                self.dl_fights()
+        if os.path.isfile(self.fn_fights):
+            self.load_archieve(self.fn_fighters)
         else:
+            self.dl_cards()
             self._fights_getter()
-            self.dump_archive(self.fn_fights)
+
 
     def get_fights(self):
         "return links to fighters profiles"
@@ -67,16 +63,11 @@ class base():
 
     def dl_fighters(self):
         "helper that reduces redundancy"
-        if not self.fightsLinks:
-            if os.path.isfile(self.fn_fights):
-                self.load_archieve(self.fn_fights)
-                self.dl_fighters()
-            else:
-                self._fights_getter()
-                self.dl_fighters()
+        if os.path.isfile(self.fn_fighters):
+            self.load_archieve(self.fn_fighters)
         else:
-            self._fights_getter()
-            self.dump_archive(self.fn_fights)
+            self.dl_fights()
+            self._fighters_getter()
 
     def get_fighters(self):
         "return information about the fighters"
