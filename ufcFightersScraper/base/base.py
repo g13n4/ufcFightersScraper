@@ -1,25 +1,23 @@
-import os
 import json
+import os
 
 class base():
     def __init__(self,site_name):
-        self.cardsLinks = []
-        self.fightsLinks = []
-        self.fightersInfo = []
+        self.cardsLinks, self.fightsLinks, self.fightersInfo = [], [], []
         self.fn_cards,self.fn_fights,self.fn_fighters = \
             [site_name + x +".json" for x in ["_cards","_fights","_fighters"]]
         self.names_ref = {self.fn_cards:self.cardsLinks,
                           self.fn_fights:self.fightsLinks,
                           self.fn_fighters:self.fightersInfo}
 
-
     def dump_archive(self,fname):
         """dumps fname file"""
-        self.names_ref[fname] = json.load(open(fname, 'r'))
+        json.dump(self.names_ref[fname], open(fname, 'w'))
+
 
     def load_archieve(self,fname):
         """loads fname file"""
-        json.dump(self.names_ref[fname],open(fname, 'w'))
+        self.names_ref[fname].extend(json.load(open(fname, 'r')))
 
 
     def _cards_getter(self):
