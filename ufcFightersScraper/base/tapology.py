@@ -1,10 +1,11 @@
+from .base import base
+
 from bs4 import BeautifulSoup
 from unidecode import unidecode
 from urllib.request import urlopen
 
 import re
 import json
-import os.path
 
 from selenium import webdriver
 
@@ -12,69 +13,40 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
-class tapology:
-    def __init__(self, wd: webdriver, path_to_umatrix: str):
+class tapology(base):
+    def __init__(self,wd: webdriver):
+        super(tapology, self).__init__("tapology")
         self.wd = wd
-        self.wd.install_addon(path_to_umatrix)
-        self.cardsLinks = []
-        self.fightersLinks = []
-        self.fightersInfo = []
 
-    def downloadAllCardsInfo(self):
+    def _cards_getter(self):
         """Get all the UFC cards from tapology's site"""
-        if os.path.isfile("tapology_cards.json"):
-            self.cardsLinks = json.load(open('tapology_cards.json', 'r'))
-        else:
-            for page in range(20, 0, -1):
-                link = urlopen(
-                    f'https://www.tapology.com/fightcenter?group=ufc&page={page}&region=&schedule=results')
-                site = BeautifulSoup(link, 'html.parser')
-                links_on_page = []
-                for result in site.find_all('section', class_="fcListing"):
-                    elem = result.find('span', 'name').a
-                    links_on_page.append(
-                        ("https://www.tapology.com" + elem.get('href'), elem.text))
-                    self.cardsLinks.extend(links_on_page[::-1])
+        for page in range(20, 0, -1):
+            link = urlopen(
+                f'https://www.tapology.com/fightcenter?group=ufc&page={page}&region=&schedule=results')
+            site = BeautifulSoup(link, 'html.parser')
+            links_on_page = []
+            for result in site.find_all('section', class_="fcListing"):
+                elem = result.find('span', 'name').a
+                links_on_page.append(
+                    ("https://www.tapology.com" + elem.get('href'), elem.text))
+                self.cardsLinks.extend(links_on_page[::-1])
 
-            json.dump(self.cardsLinks,open('tapology_cards.json','w'))
-
-    def get_cards_links(self):
-        return self.cardsLinks if self.cardsLinks else self.downloadAllCardsInfo()
-
-    def downloadAllFightersProfiles(self):
-        "Extracts all links to the ufc fighters (or ex-fighters) profiles"
-
-        if not (self.cardsLinks and os.path.isfile("tapology_cards.json")):
-            list_of_fighters = []
-            checked_fighters = []
-            for card_link, card_name in self.cardsLinks:
-                link = urlopen(card_link)
-                site = BeautifulSoup(link, 'html.parser')
-                for bout in site.find_all('li', 'fightCard'):
-                    for name in bout.find_all('a'):
-                        if re.match('/fightcenter/bouts/', name.get(
+    def _fights_getter(self):
+        list_of_fighters = []
+        checked_fighters = []
+        for card_link, card_name in self.cardsLinks:
+            link = urlopen(card_link)
+            site = BeautifulSoup(link, 'html.parser')
+            for bout in site.find_all('li', 'fightCard'):
+                for name in bout.find_all('a'):
+                    if re.match('/fightcenter/bouts/', name.get(
                             'href')) or name.text in checked_fighters: continue
-                        list_of_fighters.append(
-                            "https://www.tapology.com" + name.get('href'))
-                        checked_fighters.append(name.text)
-            self.fightersLinks += list(set(list_of_fighters))
+                    list_of_fighters.append(
+                        "https://www.tapology.com" + name.get('href'))
+                    checked_fighters.append(name.text)
+        self.fightsLinks += list(set(list_of_fighters))
 
-            if not os.path.isfile("tapology_fighters_links.json"):
-                json.dump(self.fightersLinks, open('tapology_fighters_links.json', 'w'))
-
-        elif os.path.isfile("sherdog_cards.json"):
-            self.fightersLinks = json.load(open('tapology_fighters_links.json','r'))
-            self.downloadAllFightersProfiles()
-        else:
-            self.downloadAllCardsInfo()
-            self.downloadAllFightersProfiles()
-
-
-    def get_fighters_links(self):
-        return self.fightersLinks if self.fightersLinks else self.downloadAllFightersProfiles()
-
-    def get_fighters_info(self,url):
+    def _get_one(self,url):
         def get_score(string):
             if not string: return {'nc': '0', 'wins': '0', 'loses': '0',
                                    'draws': '0'}
@@ -278,17 +250,11 @@ class tapology:
 
         return fighter
 
-    def extractAllInfo(self):
-        if not self.fightersLinks:
-            self.downloadAllFightersProfiles()
-        else:
-            for idx, link in enumerate(self.fightersLinks):
-                self.fightersInfo.append(self.get_fighters_info(link))
-                if not (idx % 100):
-                    print(f"{len(self.fightersLinks) - idx} fighters are left")
-            print(f"All done")
-            json.dump(self.fightersInfo, open('tapology_fighters_links.json', 'r'))
-
-    def getAllinfo(self):
-         return self.fightersInfo
+    def _fighters_getter(self):
+        for idx, link in enumerate(self.fightsLinks):
+            self.fightersInfo.append(self._get_one(link))
+            if not (idx % 100):
+                print(f"{len(self.fightsLinks) - idx} fighters are left")
+        print(f"All done")
+        json.dump(self.fightersInfo, open('tapology_fighters_links.json', 'r'))
 
