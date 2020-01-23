@@ -8,9 +8,9 @@ from unidecode import unidecode
 
 from .base import base
 
-class ufcstats(base):
+class scraper(base):
     def __init__(self):
-        super(ufcstats, self).__init__("ufcstats")
+        super(scraper, self).__init__("ufcstats")
         self.dates = {}
 
     def _cards_getter(self):

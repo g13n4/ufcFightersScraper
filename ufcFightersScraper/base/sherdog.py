@@ -1,16 +1,14 @@
-from .base import base
-
-from bs4 import BeautifulSoup
-from unidecode import unidecode
-
 import re
 
+from bs4 import BeautifulSoup
 from selenium import webdriver
+from unidecode import unidecode
 
+from .base import base
 
-class sherdog(base):
+class scraper(base):
     def __init__(self,wd: webdriver, path_to_umatrix: str):
-        super(sherdog, self).__init__("sherdog")
+        super(scraper, self).__init__("sherdog")
         self.wd = wd
         self.wd.install_addon(path_to_umatrix)
         self.fightsLinks = {}
@@ -61,6 +59,12 @@ class sherdog(base):
             new_date = string.split('/')
             return '-'.join([new_date[2].strip(), months[new_date[0].strip()],new_date[1].strip()])
 
+        def tostr(elem):
+            if type(elem) == list:
+                return list(map(str, elem))
+            else:
+                return str(elem)
+
         fighter = {'Name': '',
                    'Nickname': '',
                    'Birth date': '',
@@ -87,7 +91,7 @@ class sherdog(base):
         if not site.find('div', class_='module bio_fighter tagged'):
             if len(bio.find('h1').find_all('span')) > 1:
                 fighter['Name'], fighter['Nickname'] = \
-                    [x.text for x in bio.find('h1').find_all('span')]
+                    [str(x.text) for x in bio.find('h1').find_all('span')]
             else:
                 fighter['Name'] = str(bio.find('h1').find('span').text)
         else:
@@ -122,31 +126,27 @@ class sherdog(base):
                                                            class_='counter').text)
 
         if bio.find('div', class_='right_side'):
-            for outs in bio.find('div', class_='right_side').find_all(
-                    'div', class_='bio_graph'):
+            for outs in bio.find('div', class_='right_side').find_all('div', class_='bio_graph'):
                 if outs.find('span', 'result').text == 'Draws':
-                    fighter['Record']['draws'] = str(
-                        outs.find('span', 'counter').text)
+                    fighter['Record']['draws'] = str(outs.find('span', 'counter').text)
                 if outs.find('span', 'result').text == 'N/C':
-                    fighter['Record']['nc'] = str(
-                        outs.find('span', 'counter').text)
+                    fighter['Record']['nc'] = str(outs.find('span', 'counter').text)
 
-        bouts_summary = [re.match('\d+', x.text)[0] for x in
-                         bio.find_all('span', class_='graph_tag')]
+        bouts_summary = [re.match('\d+', x.text)[0] for x in bio.find_all('span', class_='graph_tag')]
         if len(bouts_summary) == 8:
-            fighter['wins summary']['KO/TKO'], fighter['wins summary'][
-                'SUBMISSIONS'], fighter['wins summary']['DECISIONS'], \
-            fighter['wins summary']['OTHERS'] = bouts_summary[0:4]
+            fighter['wins summary']['KO/TKO'], fighter['wins summary']['SUBMISSIONS'], fighter['wins summary'][
+                'DECISIONS'], \
+            fighter['wins summary']['OTHERS'] = tostr(bouts_summary[0:4])
             fighter['loses summary']['KO/TKO'], fighter['loses summary'][
                 'SUBMISSIONS'], fighter['loses summary']['DECISIONS'], \
-            fighter['loses summary']['OTHERS'] = bouts_summary[4:]
+            fighter['loses summary']['OTHERS'] = tostr(bouts_summary[4:])
         else:
             fighter['wins summary']['KO/TKO'], fighter['wins summary'][
                 'SUBMISSIONS'], fighter['wins summary'][
-                'DECISIONS'] = bouts_summary[0:3]
+                'DECISIONS'] = tostr(bouts_summary[0:3])
             fighter['loses summary']['KO/TKO'], fighter['loses summary'][
                 'SUBMISSIONS'], fighter['loses summary'][
-                'DECISIONS'] = bouts_summary[3:]
+                'DECISIONS'] = tostr(bouts_summary[3:])
 
         fighter['Nationality'] = str(bio.find('strong', {
             'itemprop': 'nationality'}).text if bio.find('strong', {
@@ -157,13 +157,10 @@ class sherdog(base):
 
         if bio.find('span', class_='locality'):
             if ',' in bio.find('span', class_='locality').text:
-                fighter['Location city'], fighter[
-                    'Location region'] = bio.find('span',
-                                                  class_='locality').text.split(
-                    ',')
+                fighter['Location city'], fighter['Location region'] = tostr(
+                    bio.find('span', class_='locality').text.split(','))
             else:
-                fighter['Location city'] = str(
-                    bio.find('span', class_='locality').text)
+                fighter['Location city'] = str(bio.find('span', class_='locality').text)
 
         # fights description
         for history in site.find_all('div', class_='module fight_history'):

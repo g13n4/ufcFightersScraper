@@ -1,21 +1,19 @@
-from .base import base
-
-from bs4 import BeautifulSoup
-from unidecode import unidecode
+import json
+import re
 from urllib.request import urlopen
 
-import re
-import json
-
+from bs4 import BeautifulSoup
 from selenium import webdriver
-
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from unidecode import unidecode
 
-class tapology(base):
+from .base import base
+
+class scraper(base):
     def __init__(self,wd: webdriver):
-        super(tapology, self).__init__("tapology")
+        super(scraper, self).__init__("tapology")
         self.wd = wd
 
     def _cards_getter(self):

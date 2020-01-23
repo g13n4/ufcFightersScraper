@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="871b8a1e-7696-4cb2-be4f-29e00aa4d20f" name="Default Changelist" comment="" />
+    <list default="true" id="871b8a1e-7696-4cb2-be4f-29e00aa4d20f" name="Default Changelist" comment="finished ufcstats">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ufcFightersScraper/base/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/ufcFightersScraper/base/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ufcFightersScraper/base/sherdog.py" beforeDir="false" afterPath="$PROJECT_DIR$/ufcFightersScraper/base/sherdog.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/ufcFightersScraper$test.coverage" NAME="test Coverage Results" MODIFIED="1578858600732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ufcFightersScraper" />
+    <SUITE FILE_PATH="coverage/ufcFightersScraper$base.coverage" NAME="base Coverage Results" MODIFIED="1578858594958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ufcFightersScraper/base" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -23,37 +32,32 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.6680628">
+    <splitter split-orientation="vertical" split-proportion="0.4875">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ufcFightersScraper/__init__.py">
+            <entry file="file://$PROJECT_DIR$/ufcFightersScraper/sherdog.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="153">
+                  <caret line="9" selection-start-line="9" selection-end-line="9" />
+                  <folding>
+                    <element signature="e#0#29#0" expanded="true" />
+                    <element signature="e#153#11647#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ufcFightersScraper/sherdog_cards.json">
               <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ufcFightersScraper/sherdog.py">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="304">
-                  <caret line="77" column="145" lean-forward="true" selection-start-line="77" selection-start-column="145" selection-end-line="77" selection-end-column="145" />
-                  <folding>
-                    <element signature="e#0#29#0" expanded="true" />
-                    <element signature="e#203#354#0" />
-                    <element signature="e#409#1069#0" />
-                    <element signature="e#1132#1154#0" />
-                    <element signature="e#1205#2841#0" />
-                    <element signature="e#2815#2952#0" />
-                    <element signature="e#2808#10523#0" />
-                    <element signature="e#2840#3212#0" />
-                    <element signature="e#4222#4499#0" />
-                    <element signature="e#4534#4767#0" />
-                    <element signature="e#5115#5305#0" />
-                    <element signature="e#5534#5883#0" />
-                    <element signature="e#6260#6743#0" />
-                    <element signature="e#6773#6880#0" />
-                    <element signature="e#6937#7122#0" />
-                    <element signature="e#10559#11050#0" />
-                  </folding>
+                <state relative-caret-position="68">
+                  <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -61,11 +65,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ufcFightersScraper/ufcstats.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
+                <state relative-caret-position="119">
                   <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#0#4#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -73,7 +74,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ufcFightersScraper/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
+                <state relative-caret-position="170">
                   <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
@@ -89,16 +90,6 @@
                   <caret selection-end-line="21" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#29#0" expanded="true" />
-                    <element signature="e#415#1157#0" />
-                    <element signature="e#1198#1272#0" />
-                    <element signature="e#1753#2991#0" />
-                    <element signature="e#3200#3337#0" />
-                    <element signature="e#3131#12971#0" />
-                    <element signature="e#3282#3714#0" />
-                    <element signature="e#3769#4193#0" />
-                    <element signature="e#4558#5002#0" />
-                    <element signature="e#12998#13403#0" />
-                    <element signature="e#13526#13550#0" />
                   </folding>
                 </state>
               </provider>
@@ -107,37 +98,34 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/tapology.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-3332">
-                  <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+                <state relative-caret-position="187">
+                  <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/sherdog.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
                   <folding>
-                    <element signature="e#605#1389#0" />
+                    <element signature="e#0#22#0" expanded="true" />
+                    <element signature="e#1008#2132#0" />
+                    <element signature="e#2208#2580#0" />
+                    <element signature="e#2623#2639#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/sherdog.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2708">
-                  <caret line="27" column="67" lean-forward="true" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
-                  <folding>
-                    <element signature="e#0#22#0" expanded="true" />
-                    <element signature="e#586#590#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/ufcstats.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="437">
-                  <caret line="68" column="27" lean-forward="true" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
+                <state relative-caret-position="102">
+                  <caret line="458" column="20" selection-start-line="458" selection-start-column="20" selection-end-line="458" selection-end-column="20" />
                   <folding>
-                    <element signature="e#0#22#0" expanded="true" />
-                    <element signature="e#610#1015#0" />
-                    <element signature="e#953#2285#0" />
+                    <element signature="e#0#11#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -146,11 +134,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/base.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="556">
-                  <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
-                  <folding>
-                    <element signature="e#0#9#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="588">
+                  <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
                 </state>
               </provider>
             </entry>
@@ -158,14 +143,25 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/base.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="23" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="23" />
+                <state relative-caret-position="255">
+                  <caret line="16" column="64" lean-forward="true" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
                   <folding>
-                    <element signature="e#0#9#0" expanded="true" />
+                    <element signature="e#503#584#0" />
+                    <element signature="e#630#718#0" />
+                    <element signature="e#758#821#0" />
+                    <element signature="e#855#1091#0" />
+                    <element signature="e#1126#1176#0" />
+                    <element signature="e#1217#1295#0" />
+                    <element signature="e#1330#1599#0" />
+                    <element signature="e#1636#1707#0" />
+                    <element signature="e#1750#1836#0" />
+                    <element signature="e#1874#1915#0" />
+                    <element signature="e#1952#2209#0" />
+                    <element signature="e#2247#2323#0" />
                   </folding>
                 </state>
               </provider>
@@ -176,6 +172,19 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="119">
                   <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/sherdog.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="30" />
+                  <folding>
+                    <element signature="e#1008#2132#0" />
+                    <element signature="e#2171#9882#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -200,6 +209,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="g13n4 &lt;joey-hzpfywtd@hotmail.com&gt;" />
         <option value="g13n4" />
       </list>
     </option>
@@ -215,9 +225,11 @@
         <option value="$PROJECT_DIR$/ufcFightersScraper/base.py" />
         <option value="$PROJECT_DIR$/ufcFightersScraper/tapology.py" />
         <option value="$PROJECT_DIR$/ufcFightersScraper/base/tapology.py" />
+        <option value="$PROJECT_DIR$/ufcFightersScraper/base/ufcstats.py" />
+        <option value="$PROJECT_DIR$/ufcFightersScraper/test.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/ufcFightersScraper/base/base.py" />
         <option value="$PROJECT_DIR$/ufcFightersScraper/base/sherdog.py" />
-        <option value="$PROJECT_DIR$/ufcFightersScraper/base/ufcstats.py" />
       </list>
     </option>
   </component>
@@ -227,9 +239,9 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-5" />
-    <option name="y" value="-5" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-195" />
+    <option name="y" value="106" />
     <option name="width" value="1930" />
     <option name="height" value="1060" />
   </component>
@@ -241,7 +253,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -265,13 +276,14 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -290,6 +302,58 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Python.test">
+    <configuration name="base" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ufcFightersScraper" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ufcFightersScraper/base" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ufcFightersScraper/base/base.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ufcFightersScraper" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ufcFightersScraper" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ufcFightersScraper/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.base" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -303,6 +367,10 @@
       <workItem from="1578755408681" duration="6546000" />
       <workItem from="1578764344446" duration="437000" />
       <workItem from="1578766654715" duration="22789000" />
+      <workItem from="1578832106471" duration="2983000" />
+      <workItem from="1578839039714" duration="341000" />
+      <workItem from="1578856542127" duration="2281000" />
+      <workItem from="1579769774285" duration="2539000" />
     </task>
     <task id="LOCAL-00001" summary="adding a method (get_fighters)">
       <created>1578783460365</created>
@@ -332,11 +400,25 @@
       <option name="project" value="LOCAL" />
       <updated>1578791823002</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finished ufcstats">
+      <created>1578838834101</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1578838834101</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fixed dictionary/pointer bug in &quot;base&quot;">
+      <created>1578858748340</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1578858748340</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29772000" />
+    <option name="totallyTimeSpent" value="37916000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -351,12 +433,12 @@
     <frame x="-5" y="-5" width="1930" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.090618335" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09434968" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32984293" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32984293" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -402,57 +484,68 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding a method (get_fighters)" />
     <MESSAGE value="annotations added" />
     <MESSAGE value="added based versions of sherdog and tapology. ufstats is unfinished" />
-    <option name="LAST_COMMIT_MESSAGE" value="added based versions of sherdog and tapology. ufstats is unfinished" />
+    <MESSAGE value="finished ufcstats" />
+    <MESSAGE value="fixed dictionary/pointer bug in &quot;base&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed dictionary/pointer bug in &quot;base&quot;" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ufcFightersScraper/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/ufcFightersScraper/test.py" />
     <entry file="file://$PROJECT_DIR$/ufcFightersScraper/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="170">
           <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ufcFightersScraper/sherdog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="77" column="145" lean-forward="true" selection-start-line="77" selection-start-column="145" selection-end-line="77" selection-end-column="145" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#203#354#0" />
-            <element signature="e#409#1069#0" />
-            <element signature="e#1132#1154#0" />
-            <element signature="e#1205#2841#0" />
-            <element signature="e#2815#2952#0" />
-            <element signature="e#2808#10523#0" />
-            <element signature="e#2840#3212#0" />
-            <element signature="e#4222#4499#0" />
-            <element signature="e#4534#4767#0" />
-            <element signature="e#5115#5305#0" />
-            <element signature="e#5534#5883#0" />
-            <element signature="e#6260#6743#0" />
-            <element signature="e#6773#6880#0" />
-            <element signature="e#6937#7122#0" />
-            <element signature="e#10559#11050#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ufcFightersScraper/ufcstats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#4#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -463,59 +556,71 @@
           <caret selection-end-line="21" selection-end-column="30" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#415#1157#0" />
-            <element signature="e#1198#1272#0" />
-            <element signature="e#1753#2991#0" />
-            <element signature="e#3200#3337#0" />
-            <element signature="e#3131#12971#0" />
-            <element signature="e#3282#3714#0" />
-            <element signature="e#3769#4193#0" />
-            <element signature="e#4558#5002#0" />
-            <element signature="e#12998#13403#0" />
-            <element signature="e#13526#13550#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/tapology.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3332">
-          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        <state relative-caret-position="187">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ufcFightersScraper/ufcstats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ufcFightersScraper/sherdog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#605#1389#0" />
+            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#153#11647#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/sherdog.py">
+    <entry file="file://$PROJECT_DIR$/ufcFightersScraper/sherdog_cards.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2708">
-          <caret line="27" column="67" lean-forward="true" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#586#590#0" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/ufcstats.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="68" column="27" lean-forward="true" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
+        <state relative-caret-position="102">
+          <caret line="458" column="20" selection-start-line="458" selection-start-column="20" selection-end-line="458" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ufcFightersScraper/base/sherdog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#610#1015#0" />
-            <element signature="e#953#2285#0" />
+            <element signature="e#1008#2132#0" />
+            <element signature="e#2208#2580#0" />
+            <element signature="e#2623#2639#0" />
           </folding>
         </state>
       </provider>
