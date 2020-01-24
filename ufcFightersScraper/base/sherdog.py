@@ -23,11 +23,12 @@ class scraper(base):
                 if line.find('a'):
                     self.cardsLinks.append(
                         "https://www.sherdog.com" + line.a['href'])
+        self.cardsLinks = list(set(self.cardsLinks))
 
     def _fights_getter(self):
         for cnumber, card in enumerate(self.cardsLinks):
             if not ((len(self.cardsLinks) - cnumber) % 100):
-                print("{len(self.fightersLinks) - cnumber} cards are left")
+                print(f"{len(self.size_cards) - cnumber} cards are left")
 
             self.wd.implicitly_wait(1)
             self.wd.get(card)

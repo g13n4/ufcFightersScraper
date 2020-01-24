@@ -32,7 +32,7 @@ class base():
         if bouts:
             self.fightsLinks = list(set(self.fightsLinks))
         if info:
-            self.fightersInfo = list(set(self.fightersInfo))
+            pass
 
     def _finalysing(self):
         pass
