@@ -15,14 +15,17 @@ class scraper(base):
 
     def _cards_getter(self):
         """downloads sites and extracts links from them"""
-        for page in range(20, 0, -1):
+        for page in range(1, 100):
             link = urlopen(
                 f'http://ufcstats.com/statistics/events/completed?page={page}')
             site = BeautifulSoup(link, 'html.parser')
-            for link in site.find('tbody').find_all('a', class_='b-link')[
-                        ::-1]:
-                self.cardsLinks.append(link['href'])
-
+            cards = site.find('tbody').find_all('a', class_='b-link')
+            if cards:
+                for link in cards[::-1]:
+                    self.cardsLinks.append(link['href'])
+            else:
+                self.cardsLinks.pop(0)
+                break
 
     def _fights_getter(self):
         fighters_wclasses = dict()
@@ -45,14 +48,9 @@ class scraper(base):
                         self.fightsLinks.append(fighter['href'])
 
         #helps recognizing women weightclasses
-        def is_woman(string):
-            if re.search('women', string, re.IGNORECASE):
-                return 1
-            else:
-                return 0
-
+        is_woman = lambda x: 'women' in x.lower()
         women = {k: is_woman(v) for k, v in fighters_wclasses.items()}
-        json.dump(women, open("womens_dict_ufcstats.json", 'w'))
+        json.dump(women, open("ufcstats_women.json", 'w'))
 
 
     def _get_one(self,url):

@@ -41,7 +41,6 @@ class scraper(base):
                     list_of_fighters.append(
                         "https://www.tapology.com" + name.get('href'))
                     checked_fighters.append(name.text)
-        self.fightsLinks += list(set(list_of_fighters))
 
     def _get_one(self,url):
         def get_score(string):
