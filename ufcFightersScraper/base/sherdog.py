@@ -11,7 +11,6 @@ class scraper(base):
         super(scraper, self).__init__("sherdog")
         self.wd = wd
         self.wd.install_addon(path_to_umatrix)
-        self.fightsLinks = {}
 
     def _cards_getter(self):
         for x in range(0, 100):
@@ -39,15 +38,14 @@ class scraper(base):
 
                 if main_card.find('span') and main_card.find(
                         'span').text not in self.fightsLinks:
-                    self.fightersLinks[main_card.find('span').text] = \
-                    main_card['href']
+                    self.fightsLinks.append("https://www.sherdog.com" + main_card['href'])
 
             for fight in (site.find('div', class_='content table')
                     .find_all('tr', {'itemprop': 'subEvent'})):
                 for fighter in (fight
                         .find_all('td', {'itemprop': 'performer'})):
                     if fighter.a.text not in self.fightsLinks:
-                        self.fightsLinks[fighter.a.text] = fighter.a['href']
+                        self.fightsLinks.append("https://www.sherdog.com" + fighter.a['href'])
 
 
     def _get_one(self,url):
@@ -202,11 +200,3 @@ class scraper(base):
                 fighter['bouts'].append(bout_info)
 
             return fighter
-
-    def _fighters_getter(self):
-        for idx, link in enumerate(["https://www.sherdog.com" + x for x in
-                                    self.fightsLinks.values()]):
-            self.fightersInfo.append(self._get_one(link))
-            if not (idx % 100):
-                print(f"{len(self.fightsLinks) - idx} fighters are left")
-        print(f"All done")

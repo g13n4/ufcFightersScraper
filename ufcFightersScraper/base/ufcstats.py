@@ -55,11 +55,6 @@ class scraper(base):
         json.dump(women, open("womens_dict_ufcstats.json", 'w'))
 
 
-    def _fighters_getter(self):
-        """uses links to get the information about the fighters. One at a time"""
-        for offset, link in enumerate(self.fightsLinks, 1058):
-            self.fightersInfo.append(self._get_one(link))
-
     def _get_one(self,url):
         """get one fighter's info"""
         site = BeautifulSoup(urlopen(url), 'html.parser')

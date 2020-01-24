@@ -38,10 +38,6 @@ class base():
             self.dump_archive(self.fn_cards)
             self.size_cards = len(self.cardsLinks)
 
-    def get_cards(self):
-        """returns cards"""
-        return self.cardsLinks
-
     def _fights_getter(self):
         """downloads cards sites and extracts fighters links from them"""
         pass
@@ -57,13 +53,14 @@ class base():
             self.dump_archive(self.fn_fights)
             self.size_fights = len(self.fightsLinks)
 
-    def get_fights(self):
-        """return links to fighters profiles"""
-        return self.fightsLinks
-
     def _fighters_getter(self):
-        """uses links to get the information about the fighters. One at a time"""
-        pass
+        fighters_len = len(self.fightsLinks)
+        print(f"{fighters_len} fighters to download")
+        for idx, link in enumerate(self.fightsLinks):
+            self.fightersInfo.append(self._get_one(link))
+            if not (idx % 50):
+                print(f"{fighters_len - idx} fighters are left to download")
+        print(f"All done")
 
     def _get_one(self,url):
         """get one fighter's info"""
@@ -77,7 +74,3 @@ class base():
             self.dl_fights()
             self._fighters_getter()
             self.dump_archive(self.fn_fighters)
-
-    def get_fighters(self):
-        """return information about the fighters"""
-        return self.fightersInfo

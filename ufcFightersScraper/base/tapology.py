@@ -1,4 +1,3 @@
-import json
 import re
 from urllib.request import urlopen
 
@@ -248,11 +247,4 @@ class scraper(base):
 
         return fighter
 
-    def _fighters_getter(self):
-        for idx, link in enumerate(self.fightsLinks):
-            self.fightersInfo.append(self._get_one(link))
-            if not (idx % 100):
-                print(f"{len(self.fightsLinks) - idx} fighters are left")
-        print(f"All done")
-        json.dump(self.fightersInfo, open('tapology_fighters_links.json', 'r'))
 
