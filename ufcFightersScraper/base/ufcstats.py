@@ -21,13 +21,15 @@ class scraper(base):
             site = BeautifulSoup(link, 'html.parser')
             cards = site.find('tbody').find_all('a', class_='b-link')
             if cards:
-                for link in cards[::-1]:
+                for link in cards:
                     self.cardsLinks.append(link['href'])
             else:
                 self.cardsLinks.pop(0)
                 break
+        self.cardsLinks = list(set(self.cardsLinks))
 
     def _fights_getter(self):
+        """gets all fighters profiles"""
         fighters_wclasses = dict()
         for link in self.cardsLinks:
             site = BeautifulSoup(urlopen(link), 'html.parser')
@@ -47,15 +49,17 @@ class scraper(base):
                     if fighter.text.strip() not in self.fightsLinks:
                         self.fightsLinks.append(fighter['href'])
 
+        self.fightsLinks = list(set(self.fightsLinks))
         #helps recognizing women weightclasses
         is_woman = lambda x: 'women' in x.lower()
         women = {k: is_woman(v) for k, v in fighters_wclasses.items()}
         json.dump(women, open("ufcstats_women.json", 'w'))
 
-
     def _get_one(self,url):
         """get one fighter's info"""
+
         site = BeautifulSoup(urlopen(url), 'html.parser')
+        self._extract_event_date(site)
 
         fighter = {'Name': '',
                    'Nickname': '',
@@ -98,6 +102,26 @@ class scraper(base):
             fighter['bouts'].append(self.bout_info_extractor(bout['data-link']))
 
         return fighter
+
+    def _extract_event_date(self, page):
+        """extract bouts dates to use them in the combining"""
+
+        def date_decoder(string):
+            months = {'Jan': '01', 'Feb': '02', 'Mar': '03',
+                      'Apr': '04', 'May': '05', 'Jun': '06',
+                      'Jul': '07', 'Aug': '08', 'Sep': '09',
+                      'Oct': '10', 'Nov': '11', 'Dec': '12'}
+            date = re.findall('\w+', string)
+            return f"{date[-1]}-{months[date[0]]}-{date[1]}"
+
+        for cell in (page.find('table', class_="b-fight-details__table_type_event-details")
+                .find_all("td", 'l-page_align_left')):
+            if cell.a:
+                if re.search('event-details', cell.a['href']):
+                    self.dates[cell.a.text.strip()] = date_decoder(cell.find_all('p')[-1].text.strip())
+
+    def _finalysing(self):
+        json.dump(self.dates, open("ufcstats_dates", 'w'))
 
     def bout_info_extractor(self, url):
         "extracts all information about a bout"

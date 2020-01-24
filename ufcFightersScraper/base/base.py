@@ -26,8 +26,16 @@ class base():
         self.names_ref[fname].extend(json.load(open(fname, 'r')))
         print(f"{fname} dump is loaded")
 
-    def _remove_duplicates(self):
-        self.fightsLinks = list(set(self.fightsLinks))
+    def _remove_duplicates(self, cards=False, bouts=False, info=False):
+        if cards:
+            self.fightsLinks = list(set(self.cardsLinks))
+        if bouts:
+            self.fightsLinks = list(set(self.fightsLinks))
+        if info:
+            self.fightersInfo = list(set(self.fightersInfo))
+
+    def _finalysing(self):
+        pass
 
     def _cards_getter(self):
         """downloads sites and extracts links from them"""
@@ -37,14 +45,17 @@ class base():
         """helper to reduce redundancy in cards dumps/uploads"""
         if self.cardsLinks and not reload and not from_archive:
             print("cards are in memory")
-            self.dump_archive(self.fn_cards)
+            self.size_cards = len(self.cardsLinks)
+
         elif (os.path.isfile(self.fn_cards) and not reload) or from_archive:
             print("archived json of cards is found")
             self.load_archive(self.fn_cards)
             self.size_cards = len(self.cardsLinks)
+
         else:
             print("downloading cards")
             self._cards_getter()
+            self._remove_duplicates(cards=True)
             self.dump_archive(self.fn_cards)
             self.size_cards = len(self.cardsLinks)
 
@@ -57,15 +68,18 @@ class base():
         if self.fightsLinks and not reload and not from_archive:
             print("bouts are in memory")
             self.dump_archive(self.fn_fights)
+            self.size_fights = len(self.fightsLinks)
+
         elif (os.path.isfile(self.fn_fights) and not reload) or from_archive:
             print("archived json of bouts is found")
-            self.load_archive(self.fn_fighters)
+            self.load_archive(self.fn_fights)
             self.size_fights = len(self.fightsLinks)
+
         else:
             self.dl_cards()
             print("downloading bouts")
             self._fights_getter()
-            self._remove_duplicates()
+            self._remove_duplicates(bouts=True)
             self.dump_archive(self.fn_fights)
             self.size_fights = len(self.fightsLinks)
 
@@ -87,10 +101,14 @@ class base():
         if self.fightersInfo and not reload and not from_archive:
             print("fighters are in memory")
             self.dump_archive(self.fn_fighters)
+            self.size_fighters = len(self.fightersInfo)
         elif os.path.isfile(self.fn_fighters) and not reload:
             self.load_archive(self.fn_fighters)
+            self.size_fighters = len(self.fightersInfo)
         else:
             self.dl_fights()
             self._fighters_getter()
+            self._remove_duplicates(info=True)
             self.dump_archive(self.fn_fighters)
+            self._finalysing()
             self.size_fighters = len(self.fightersInfo)
